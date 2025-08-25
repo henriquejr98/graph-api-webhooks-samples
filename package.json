@@ -3,11 +3,16 @@
   "version": "0.1.2",
   "description": "Graph API Webhooks Sample",
   "main": "heroku/index.js",
-  "scripts": { "start": "node heroku/index.js" },
+  "scripts": { 
+    "start": "node heroku/index.js" 
+  },
   "dependencies": {
     "body-parser": "^1.20.3",
     "express": "^4.19.2",
-    "express-x-hub": "^1.0.4"
+    "express-x-hub": "^1.0.4",
+    "node-fetch": "^3.3.2"
   },
-  "engines": { "node": "22.x" }
+  "engines": { 
+    "node": "22.x" 
+  }
 }

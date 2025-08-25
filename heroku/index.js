@@ -11,10 +11,9 @@ var express = require('express');
 var xhub = require('express-x-hub');
 var app = express();
 
-const fetch = global.fetch;
-
-// --- POLYFILL fetch (caso seu Node não tenha fetch nativo) ---
-// const fetch = (...args) => import('node-fetch').then(({ default: f }) => f(...args));
+// ------------------- FETCH CONFIGURATION -------------------
+// Use global fetch (Node 18+) or fallback
+const fetch = global.fetch || require('node-fetch');
 
 // ------------------- CONFIG -------------------
 var PORT = process.env.PORT || 5000;
@@ -212,7 +211,7 @@ app.get('/insights', async (req, res) => {
   return res.json({ ok:true, ig_user_id: igUserId, insights_7d: ins.data });
 });
 
-// ------------------- START SERVER (um único listen) -------------------
+// ------------------- START SERVER -------------------
 app.listen(app.get('port'), () => {
   console.log(`Server listening on port ${app.get('port')}`);
 });
