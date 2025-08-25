@@ -11,8 +11,10 @@ var express = require('express');
 var xhub = require('express-x-hub');
 var app = express();
 
+const fetch = global.fetch;
+
 // --- POLYFILL fetch (caso seu Node não tenha fetch nativo) ---
-const fetch = (...args) => import('node-fetch').then(({ default: f }) => f(...args));
+// const fetch = (...args) => import('node-fetch').then(({ default: f }) => f(...args));
 
 // ------------------- CONFIG -------------------
 var PORT = process.env.PORT || 5000;
